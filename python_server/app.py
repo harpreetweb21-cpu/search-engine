@@ -344,6 +344,18 @@ def index():
     return send_from_directory(app.static_folder, 'index.html')
 
 
+@app.route('/script.js')
+def serve_script():
+    """Serve JavaScript file"""
+    return send_from_directory(app.static_folder, 'script.js')
+
+
+@app.route('/style.css')
+def serve_style():
+    """Serve CSS file"""
+    return send_from_directory(app.static_folder, 'style.css')
+
+
 @app.route('/api/search', methods=['POST'])
 def search():
     """Handle search requests"""
