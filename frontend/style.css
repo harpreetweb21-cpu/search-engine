@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header styles */
+.header {
+    display: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid #ebebeb;
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header.visible {
+    display: block;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+}
+
+.header-logo {
+    font-size: 22px;
+    font-weight: 500;
+    text-decoration: none;
+    background: linear-gradient(90deg, #4285f4, #ea4335, #fbbc05, #34a853);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-search {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 8px 15px;
+    width: 500px;
+    transition: box-shadow 0.3s;
+}
+
+.header-search:hover,
+.header-search:focus-within {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-color: transparent;
+}
+
+.header-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    padding: 5px;
+}
+
+.header-search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #4285f4;
+    padding: 5px;
+}
+
+/* Main search page styles */
+.main-search {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    margin-top: -100px;
+}
+
+.main-search.hidden {
+    display: none;
+}
+
+/* Logo styles - Google-like colorful text */
+.logo {
+    font-size: 92px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    letter-spacing: -3px;
+}
+
+.logo-s { color: #4285f4; }
+.logo-e1 { color: #ea4335; }
+.logo-a { color: #fbbc05; }
+.logo-r { color: #4285f4; }
+.logo-c { color: #34a853; }
+.logo-h { color: #ea4335; }
+.logo-e2 { color: #4285f4; }
+.logo-n { color: #ea4335; }
+.logo-g { color: #fbbc05; }
+.logo-i { color: #34a853; }
+.logo-n2 { color: #ea4335; }
+.logo-e3 { color: #4285f4; }
+
+/* Search box styles */
+.search-box {
+    width: 100%;
+    max-width: 584px;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 10px 20px;
+    transition: box-shadow 0.3s;
+}
+
+.search-input-wrapper:hover,
+.search-input-wrapper:focus-within {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+    border-color: transparent;
+}
+
+.search-icon {
+    margin-right: 15px;
+}
+
+.search-input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    padding: 10px 0;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #70757a;
+    font-size: 18px;
+    padding: 5px;
+    display: none;
+}
+
+.clear-btn.visible {
+    display: block;
+}
+
+.search-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.search-btn,
+.lucky-btn {
+    background: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    border-radius: 4px;
+    color: #3c4043;
+    font-size: 14px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.search-btn:hover,
+.lucky-btn:hover {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    background: #f8f9fa;
+    border-color: #dadce0;
+}
+
+/* Results page styles */
+.results-page {
+    display: none;
+    padding: 20px 150px;
+}
+
+.results-page.visible {
+    display: block;
+}
+
+.results-container {
+    max-width: 650px;
+}
+
+.results-stats {
+    color: #70757a;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.result-item {
+    margin-bottom: 30px;
+}
+
+.result-url {
+    font-size: 14px;
+    color: #202124;
+    margin-bottom: 5px;
+}
+
+.result-url cite {
+    color: #3c4043;
+    font-style: normal;
+}
+
+.result-title {
+    font-size: 20px;
+    color: #1a0dab;
+    text-decoration: none;
+    line-height: 1.3;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.result-title:hover {
+    text-decoration: underline;
+}
+
+.result-snippet {
+    font-size: 14px;
+    color: #4d5156;
+    line-height: 1.58;
+}
+
+.result-snippet em {
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* No results */
+.no-results {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.no-results h2 {
+    color: #202124;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.no-results p {
+    color: #70757a;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 40px 0;
+    padding: 20px;
+}
+
+.page-btn {
+    background: none;
+    border: none;
+    color: #1a0dab;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.page-btn:hover {
+    text-decoration: underline;
+}
+
+.page-btn.active {
+    font-weight: bold;
+    color: #202124;
+}
+
+.page-btn:disabled {
+    color: #70757a;
+    cursor: default;
+}
+
+/* Loading spinner */
+.loading {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1000;
+}
+
+.loading.visible {
+    display: block;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4285f4;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Footer */
+.footer {
+    background: #f2f2f2;
+    border-top: 1px solid #dadce0;
+    padding: 15px 20px;
+    margin-top: auto;
+}
+
+.footer-content {
+    text-align: center;
+    color: #70757a;
+    font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 50px;
+    }
+
+    .results-page {
+        padding: 20px;
+    }
+
+    .header-search {
+        width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 36px;
+    }
+
+    .search-buttons {
+        flex-direction: column;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-search {
+        width: 100%;
+    }
+}
